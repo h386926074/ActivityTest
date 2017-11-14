@@ -25,8 +25,9 @@ public class SecondActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                Intent intent = new Intent();
+                intent.putExtra("data_return","hello firstActivity");
+                setResult(RESULT_OK,intent);
                 finish();
             }
         });
