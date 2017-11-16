@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class FirstActivity extends AppCompatActivity {
+    private static final String TAG = "FirstActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,7 @@ public class FirstActivity extends AppCompatActivity {
 //                finish(); //关闭当前页面 相当于back
 
                 /*
-                //显卡 Intent
+                //显式 Intent
                 Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
                 startActivity(intent);
                 */
@@ -49,18 +51,49 @@ public class FirstActivity extends AppCompatActivity {
                 String data = "hello secondActivity";
                 Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
                 intent.putExtra("extra_data",data);
-                startActivity(intent);
+                startActivityForResult(intent,1);
 
             }
         });
     }
 
+
+    /**
+     * 接收 second activity 销毁传回来的数据   反向传值
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 1:
+                if (resultCode == RESULT_OK){
+                    String returnData = data.getStringExtra("data_return");
+                    Log.d(TAG, "onActivityResult: "+returnData);
+                }
+                break;
+            default:
+        }
+    }
+
+    /**
+     * activity 显示菜单
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main,menu);
         return true;
     }
 
+    /**
+     * 菜单按钮点击事件
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
