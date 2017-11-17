@@ -12,5 +12,7 @@ public class ThirdActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "This id is "+getTaskId());
         setContentView(R.layout.third_layout);
+
+        
     }
 }
