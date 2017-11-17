@@ -8,26 +8,28 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FirstActivity">
+        <activity android:name=".FirstActivity"
+            android:label="This is first activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity">
-            <intent-filter>
-                <action android:name="com.huangfeng.activitytest.ACTION_START" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+        <activity android:name=".SecondActivity"
+            android:label="This is Second Activity"
+            android:launchMode="singleInstance">
+            <!--<intent-filter>-->
+                <!--<action android:name="com.huangfeng.activitytest.ACTION_START" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".ThirdActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data  android:scheme="http"/>
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.VIEW" />-->
+                <!--<category android:name="android.intent.category.DEFAULT"/>-->
+                <!--<data  android:scheme="http"/>-->
+            <!--</intent-filter>-->
         </activity>
     </application>
 

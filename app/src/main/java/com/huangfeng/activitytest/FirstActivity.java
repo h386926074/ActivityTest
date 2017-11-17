@@ -12,13 +12,17 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
     private static final String TAG = "FirstActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
+
+
+        Log.d(TAG,"Task id is "+getTaskId());
+
 
         Button button1 = (Button) findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener(){
@@ -47,11 +51,14 @@ public class FirstActivity extends AppCompatActivity {
                 startActivity(intent);
                 */
 
-                //向下一个活动似递数据
+//                向下一个活动似递数据
                 String data = "hello secondActivity";
                 Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
                 intent.putExtra("extra_data",data);
                 startActivityForResult(intent,1);
+
+//                Intent intent = new Intent(FirstActivity.this,FirstActivity.class);
+//                startActivity(intent);
 
             }
         });
@@ -108,5 +115,9 @@ public class FirstActivity extends AppCompatActivity {
         return true;
     }
 
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart");
+    }
 }
