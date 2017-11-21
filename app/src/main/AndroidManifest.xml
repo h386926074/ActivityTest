@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".SecondActivity"
             android:label="This is Second Activity"
-            android:launchMode="singleInstance">
+            android:launchMode="standard"
+            >
             <!--<intent-filter>-->
                 <!--<action android:name="com.huangfeng.activitytest.ACTION_START" />-->
                 <!--<category android:name="android.intent.category.DEFAULT" />-->
