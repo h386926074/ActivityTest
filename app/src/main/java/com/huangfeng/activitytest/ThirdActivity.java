@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+
 public class ThirdActivity extends BaseActivity {
     private static final String TAG = "ThirdActivity";
 
@@ -23,6 +24,8 @@ public class ThirdActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 ActivityCollector.finishAll();
+//                android.os.Process.killProcess(android.os.Process.myPid());
+                Log.d(TAG, "onClick: "+android.os.Process.myPid());
             }
         });
     }

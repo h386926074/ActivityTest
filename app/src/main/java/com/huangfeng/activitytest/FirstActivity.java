@@ -53,10 +53,11 @@ public class FirstActivity extends BaseActivity {
 
 //                向下一个活动似递数据
                 String data = "hello secondActivity";
-                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
-                intent.putExtra("extra_data",data);
-                startActivityForResult(intent,1);
+//                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+//                intent.putExtra("extra_data",data);
+//                startActivityForResult(intent,1);
 
+                SecondActivity.actionStart(FirstActivity.this,data,data);
 //                Intent intent = new Intent(FirstActivity.this,FirstActivity.class);
 //                startActivity(intent);
 
